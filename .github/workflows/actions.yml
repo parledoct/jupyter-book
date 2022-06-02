@@ -1,12 +1,7 @@
 name: deploy-book
 
 # Only run this when the master branch changes
-on:
-  push:
-    branches:
-    - master
-    paths:
-    - parledoct/**
+on: push
 
 # This job installs dependencies, builds the book, and pushes it to `gh-pages`
 jobs:
