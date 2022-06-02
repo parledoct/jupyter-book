@@ -4,7 +4,7 @@ name: deploy-book
 on:
   push:
     branches:
-    - main
+    - master
     paths:
     - parledoct/**
 
