@@ -6,7 +6,7 @@
 #######################################################################################
 # Book settings
 title                       : Parledoct  # The title of the book. Will be placed in the left navbar.
-author                      : Nay San  # The author of the book
+author                      : <a href="https://resunay.com">Nay San</a>  # The author of the book
 copyright                   : "2022"  # Copyright year to be placed in the footer
 logo                        : logo.png  # A path to the book logo
 
@@ -15,14 +15,10 @@ logo                        : logo.png  # A path to the book logo
 execute:
   execute_notebooks: force
 
-# Define the name of the latex output file for PDF builds
-latex:
-  latex_documents:
-    targetname: book.tex
-
-# Add a bibtex file so that we can create citations
-bibtex_bibfiles:
-  - references.bib
+sphinx:
+  config:
+    html_theme_options:
+      show_navbar_depth: 2
 
 # Information about where the book exists on the web
 repository:
