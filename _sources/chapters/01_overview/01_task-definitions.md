@@ -35,7 +35,7 @@ Selected speech processing tasks as repeated multiple choice questions across ti
 ```
 
 ```{note}
-The labels used by the French automatic speech recognition (ASR) system is different from those used by the English ASR system (e.g. does not include the label `é`), though there is a large overlap between them (e.g. `a, b, ...y, z`). A large part of preparing transcriptions for training an ASR system involves exploring your dataset and deciding on a plan for addressing non-relevant characters (e.g. numbers, punctuation, etc.), and we will cover this aspect in the ASR tutorial.
+The labels used by the French automatic speech recognition (ASR) system are different from those used by the English ASR system (e.g. does not include the label `é`), though there is a large overlap between them (e.g. `a, b, ...y, z`). A large part of preparing transcriptions for training an ASR system involves exploring your dataset and deciding on a plan for addressing non-relevant characters (e.g. numbers, punctuation, etc.), and we will cover this aspect in the ASR tutorial.
 ```
 
 [^overlap]: In practice, a small window (e.g. 25 milliseconds) is shifted by a certain amount of time (e.g. 10 ms) at each step so that there is a certain amount of overlap between each consecutive time window.

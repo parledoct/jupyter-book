@@ -59,6 +59,7 @@ The speech signal contains all sorts of rich information but for a given task we
 
 ```{index} Classification
 ```
+## Classification
 
 Once we have distilled the speech signal down to only relevant information, we can ask a classifier to predict a relevant label based on that information. For our simplistic task of classifying vowels based on mean first and second formant values into 4 labels, a relatively simple algorithm might suffice:
 
