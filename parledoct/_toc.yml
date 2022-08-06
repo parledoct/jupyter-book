@@ -1,14 +1,23 @@
 format: jb-book
 root: intro
-chapters:
-- file: chapters/01_overview/00_index
-  sections:
-  - file: chapters/01_overview/01_task-definitions
-  - file: chapters/01_overview/02_feats-and-class
-  - file: chapters/01_overview/03_train-and-eval
-- file: chapters/02_environment/00_index
-  sections:
-    - file: chapters/02_environment/01_saturncloud-account
-    - file: chapters/02_environment/02_saturncloud-launch
-    - file: chapters/02_environment/03_jupyterlab-intro
-- file: genindex
+parts:
+- caption: Background
+  chapters:
+  - file: chapters/01_overview/00_index
+    sections:
+    - file: chapters/01_overview/01_task-definitions
+    - file: chapters/01_overview/02_feats-and-class
+    - file: chapters/01_overview/03_train-and-eval
+- caption: Tutorials
+  chapters:
+  - file: chapters/02_environment/00_index
+    sections:
+      - file: chapters/02_environment/01_saturncloud-account
+      - file: chapters/02_environment/02_saturncloud-launch
+      - file: chapters/02_environment/03_jupyterlab-intro
+  - file: chapters/03_voice-activity-detection/00_index
+    sections:
+      - file: chapters/03_voice-activity-detection/01_defaults
+- caption: Reference
+  chapters:
+  - file: genindex
