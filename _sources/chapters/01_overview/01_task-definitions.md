@@ -1,5 +1,6 @@
 ```{index} Voice activity detection ; Task definition, Speaker diarisation ; Task definition, Spoken language identification ; Task definition, Automatic speech recognition ; Task definition
 ```
+(01_task-defs)=
 # Tasks as multiple-choice questions
 
 For the kinds of speech processing tasks we're going to be covering, we can think of them as getting a machine to repeatedly answer the same multiple choice question across different time regions in a speech signal. Accordingly, as summarised in {numref}`tab-qlabels`, we can define these speech processing tasks based on the question being asked and choices (i.e. labels) the machine can choose from to try and answer the question for a given speech region.
@@ -24,6 +25,8 @@ For the kinds of speech processing tasks we're going to be covering, we can thin
   - What is being said?
   - a, b, c, d, ..., x, y, z
 ```
+
+## Deriving speech regions
 
 What are these speech regions? They are derived by subdividing an utterance into small time frames and for each frame the machine is tasked with predicting a relevant label.[^overlap] Suppose we have an utterance like below where there are two speakers (A, B) with speaker A asking in English (E) what the French (F) word for *busy* is and speaker B responds that it is *occupé*. We can see from {numref}`fig-qlabels` below that each speech processing task essentially boils down to classifying the speech contents of each of the time frame (1-20) according to the vocabulary of the task at hand (e.g. N = non-speech, S = speech for voice activity detection).[^stages]
 

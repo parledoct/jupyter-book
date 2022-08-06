@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Tasks as multiple-choice questions &#8212; Parledoct</title>
+    <title>Voice activity detection &#8212; Parledoct</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -53,8 +53,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Distill then decide" href="02_feats-and-class.html" />
-    <link rel="prev" title="Machine-assisted speech processing" href="00_index.html" />
+    <link rel="next" title="Using default parameters" href="01_defaults.html" />
+    <link rel="prev" title="JupyterLab Interface" href="../02_environment/03_jupyterlab-intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -111,9 +111,9 @@ const thebe_selector_output = ".output, .cell_output"
   Background
  </span>
 </p>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="00_index.html">
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01_overview/00_index.html">
    Machine-assisted speech processing
   </a>
   <input checked class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
@@ -121,19 +121,19 @@ const thebe_selector_output = ".output, .cell_output"
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01_overview/01_task-definitions.html">
      Tasks as multiple-choice questions
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="02_feats-and-class.html">
+    <a class="reference internal" href="../01_overview/02_feats-and-class.html">
      Distill then decide
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="03_train-and-eval.html">
+    <a class="reference internal" href="../01_overview/03_train-and-eval.html">
      Training as searching for optimal parameters
     </a>
    </li>
@@ -145,7 +145,7 @@ const thebe_selector_output = ".output, .cell_output"
   Tutorials
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../02_environment/00_index.html">
    Computation environment
@@ -173,8 +173,8 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../03_voice-activity-detection/00_index.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="current reference internal" href="#">
    Voice activity detection
   </a>
   <input checked class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
@@ -184,7 +184,7 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../03_voice-activity-detection/01_defaults.html">
+    <a class="reference internal" href="01_defaults.html">
      Using default parameters
     </a>
    </li>
@@ -275,7 +275,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../../_sources/chapters/01_overview/01_task-definitions.md"
+        <a href="../../_sources/chapters/03_voice-activity-detection/00_index.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -335,9 +335,16 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#deriving-speech-regions">
-   Deriving speech regions
+  <a class="reference internal nav-link" href="#environment">
+   Environment
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data">
+     Data
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -348,7 +355,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Tasks as multiple-choice questions</h1>
+                <h1>Voice activity detection</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -359,9 +366,16 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#deriving-speech-regions">
-   Deriving speech regions
+  <a class="reference internal nav-link" href="#environment">
+   Environment
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data">
+     Data
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -373,64 +387,54 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="tasks-as-multiple-choice-questions">
-<span id="task-defs"></span><span id="index-0"></span><h1>Tasks as multiple-choice questions<a class="headerlink" href="#tasks-as-multiple-choice-questions" title="Permalink to this headline">#</a></h1>
-<p>For the kinds of speech processing tasks we’re going to be covering, we can think of them as getting a machine to repeatedly answer the same multiple choice question across different time regions in a speech signal. Accordingly, as summarised in <a class="reference internal" href="#tab-qlabels"><span class="std std-numref">Table 1</span></a>, we can define these speech processing tasks based on the question being asked and choices (i.e. labels) the machine can choose from to try and answer the question for a given speech region.</p>
-<table class="table" id="tab-qlabels">
-<caption><span class="caption-number">Table 1 </span><span class="caption-text">Selected speech processing tasks as multiple choice questions</span><a class="headerlink" href="#tab-qlabels" title="Permalink to this table">#</a></caption>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Task</p></th>
-<th class="head"><p>Question</p></th>
-<th class="head"><p>Example labels/choices</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Voice activity detection</p></td>
-<td><p>What acoustic activity is happening?</p></td>
-<td><p>Speech (S), Non-speech (N)</p></td>
-</tr>
-<tr class="row-odd"><td><p>Speaker diarisation</p></td>
-<td><p>Who is speaking?</p></td>
-<td><p>SpeakerA (A), SpeakerB (B)</p></td>
-</tr>
-<tr class="row-even"><td><p>Spoken language identification</p></td>
-<td><p>What language is being spoken?</p></td>
-<td><p>English (E), French (F)</p></td>
-</tr>
-<tr class="row-odd"><td><p>Automatic speech recognition</p></td>
-<td><p>What is being said?</p></td>
-<td><p>a, b, c, d, …, x, y, z</p></td>
-</tr>
-</tbody>
-</table>
-<section id="deriving-speech-regions">
-<h2>Deriving speech regions<a class="headerlink" href="#deriving-speech-regions" title="Permalink to this headline">#</a></h2>
-<p>What are these speech regions? They are derived by subdividing an utterance into small time frames and for each frame the machine is tasked with predicting a relevant label.<a class="footnote-reference brackets" href="#overlap" id="id1">1</a> Suppose we have an utterance like below where there are two speakers (A, B) with speaker A asking in English (E) what the French (F) word for <em>busy</em> is and speaker B responds that it is <em>occupé</em>. We can see from <a class="reference internal" href="#fig-qlabels"><span class="std std-numref">Fig. 2</span></a> below that each speech processing task essentially boils down to classifying the speech contents of each of the time frame (1-20) according to the vocabulary of the task at hand (e.g. N = non-speech, S = speech for voice activity detection).<a class="footnote-reference brackets" href="#stages" id="id2">2</a></p>
-<figure class="align-default" id="fig-qlabels">
-<img alt="../../_images/speech-processing_fig-qlabels.png" src="../../_images/speech-processing_fig-qlabels.png" />
-<figcaption>
-<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Selected speech processing tasks as repeated multiple choice questions across time</span><a class="headerlink" href="#fig-qlabels" title="Permalink to this image">#</a></p>
-</figcaption>
+  <section class="tex2jax_ignore mathjax_ignore" id="voice-activity-detection">
+<h1>Voice activity detection<a class="headerlink" href="#voice-activity-detection" title="Permalink to this headline">#</a></h1>
+<p>As we’ve seen in the <a class="reference internal" href="../01_overview/01_task-definitions.html#task-defs"><span class="std std-ref">task definitions</span></a>, voice activity detection (VAD) is the task where we classify the acoustic signal into regions of speech and non-speech.
+In this sequence of tutorials, we’ll learn how to perform VAD on a folder of wav files and create accompanying ELAN eaf files whose annotations on the ‘default’ tier are the time regions detected as speech.</p>
+<p>For the VAD, we’ll use the <a class="reference external" href="https://github.com/amsehili/auditok">auditok</a> Python package, which provides an easy way to detect regions in a sound file that are above a certain threshold of acoustic energy (defaults to <code class="docutils literal notranslate"><span class="pre">50</span> <span class="pre">dB</span></code>). We’ll then use the <code class="docutils literal notranslate"><span class="pre">pympi</span></code> Python package to export the time regions to an ELAN file.</p>
+<figure class="align-default">
+<img alt="../../_images/vad.png" src="../../_images/vad.png" />
 </figure>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The labels used by the French automatic speech recognition (ASR) system are different from those used by the English ASR system (e.g. does not include the label <code class="docutils literal notranslate"><span class="pre">é</span></code>), though there is a large overlap between them (e.g. <code class="docutils literal notranslate"><span class="pre">a,</span> <span class="pre">b,</span> <span class="pre">...y,</span> <span class="pre">z</span></code>). A large part of preparing transcriptions for training an ASR system involves exploring your dataset and deciding on a plan for addressing non-relevant characters (e.g. numbers, punctuation, etc.), and we will cover this aspect in the ASR tutorial.</p>
+<section id="environment">
+<h2>Environment<a class="headerlink" href="#environment" title="Permalink to this headline">#</a></h2>
+<p>Assuming you’ve already <a class="reference internal" href="../02_environment/01_saturncloud-account.html"><span class="doc std std-doc">created a SaturnCloud account</span></a> and have familiarised yourself with creating and <a class="reference internal" href="../02_environment/02_saturncloud-launch.html"><span class="doc std std-doc">(re-)starting a Resource on SaturnCloud</span></a>, click the button below to create the <code class="docutils literal notranslate"><span class="pre">voice-activity-detection</span></code> resource you’ll need for this tutorial.
+Start the resource and once it’s ready <a class="reference external" href="../02_environment/02_saturncloud-launch.html#launch-jupyter-lab-interface">launch a JupyterLab interface</a> and then <a class="reference external" href="../02_environment/03_jupyterlab-intro.html#python-3-console">launch a Python 3 Console</a> within JupyterLab.</p>
+<p align="center">
+<a target="_blank" href="https://app.community.saturnenterprise.io/dash/o/community/resources?recipeUrl=https://gist.githubusercontent.com/fauxneticien/68313eb494337f60f69d140c8270f3d7/raw/c9b08bd9e2be52a5e27844167596b1a41027bd74/voice-activity-detection.json">
+<button class="saturn" role="button">Create Resource on SaturnCloud</button>
+</a>
+</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Recall that you cannot create two resources with the same name on the same account, so you will get an error if you tried to create the same Resource more than once. If you’re resuming this tutorial and have already created the resource, go to your <a href="https://app.community.saturnenterprise.io/dash/o/community/resources" target="_blank">SaturnCloud Resources</a> page to re-start the previously created <code class="docutils literal notranslate"><span class="pre">voice-activity-detection</span></code> Resource.</p>
 </div>
-<hr class="footnotes docutils" />
-<dl class="footnote brackets">
-<dt class="label" id="overlap"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>In practice, a small window (e.g. 25 milliseconds) is shifted by a certain amount of time (e.g. 10 ms) at each step so that there is a certain amount of overlap between each consecutive time window.</p>
-</dd>
-<dt class="label" id="stages"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
-<dd><p>Typically voice activity detection is performed first before the other <em>downstream</em> tasks, so that windows in which no voice activity was detected (e.g. 1, 6-13, 20 in <a class="reference internal" href="#fig-qlabels"><span class="std std-numref">Fig. 2</span></a>) are not actually processed beyond the first stage. Similarly, spoken language identification (to identify English or French) is done before automatic speech recognition (ASR) so that the right ASR system (English or French) can be used for the subsequent transcription stage.</p>
-</dd>
-</dl>
+<section id="data">
+<h3>Data<a class="headerlink" href="#data" title="Permalink to this headline">#</a></h3>
+<p>We’ll be using some real fieldwork data on Ihanzu (a Bantu language spoken in Tanzania) collected by <a class="reference external" href="https://www.andrewdtharvey.com/">Andrew Harvey</a>, publicly available with a <a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">CC-BY license</a> on the <a class="reference external" href="https://www.elararchive.org/index.php?name=SO_87014498-be98-4698-82fc-8fac58578d57">Endangered Languages Archive</a>. For this tutorial, we’ll be using versions of the recordings that I’ve modified (resampled, converted to mono, etc.) and uploaded to Zenodo.</p>
+<p>First let’s download the data from Zenodo into the <code class="docutils literal notranslate"><span class="pre">tmp</span></code> folder using <code class="docutils literal notranslate"><span class="pre">wget</span></code> <a class="reference external" href="../02_environment/03_jupyterlab-intro.html#shell-commands">Shell commands</a>.
+Copy and paste the commands below into the text input area and press <code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">Enter</span></code> to execute them.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>To copy code, you can hover your mouse over the top right corner of a code block until the a <code class="docutils literal notranslate"><span class="pre">Copy</span></code> button appears and then click the button to copy the contents of a code block.</p>
+</div>
+<ul>
+<li><p><strong>Get</strong> data from the <strong>w</strong>eb url <code class="docutils literal notranslate"><span class="pre">http://zenodo.org/...</span></code> and write the data to the <strong>o</strong>utput file <code class="docutils literal notranslate"><span class="pre">tmp/data.zip</span></code> (specified <code class="docutils literal notranslate"><span class="pre">-O</span></code>):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>!wget <span class="s1">&#39;https://zenodo.org/record/6519000/files/ihanzu-harvey-0596_20180518opq.zip?download=1&#39;</span> <span class="se">\</span>
+    -O tmp/data.zip
+</pre></div>
+</div>
+</li>
+<li><p><strong>Unzip</strong> the file <code class="docutils literal notranslate"><span class="pre">tmp/data.zip</span></code> into the output <strong>d</strong>irectory <code class="docutils literal notranslate"><span class="pre">data/</span></code> (specified by <code class="docutils literal notranslate"><span class="pre">-d</span></code>):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>!unzip tmp/data.zip -d data/
+</pre></div>
+</div>
+</li>
+</ul>
+<p>Now that you have the environment and data ready, let’s use <code class="docutils literal notranslate"><span class="pre">auditok</span></code> to perform voice activity detection!</p>
 </section>
+</section>
+<div class="toctree-wrapper compound">
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -446,7 +450,7 @@ title="Print to PDF"
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./chapters/01_overview"
+            path: "./chapters/03_voice-activity-detection"
         },
         predefinedOutput: true
     }
@@ -460,17 +464,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="00_index.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../02_environment/03_jupyterlab-intro.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Machine-assisted speech processing</p>
+            <p class="prev-next-title">JupyterLab Interface</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="02_feats-and-class.html" title="next page">
+    <a class='right-next' id="next-link" href="01_defaults.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Distill then decide</p>
+        <p class="prev-next-title">Using default parameters</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

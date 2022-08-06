@@ -53,13 +53,21 @@ To run Python commands in the console, you can type in a Python command such as 
 
 ### Shell commands
 
-A 'shell' is an analogy for the layer that sits between the user and the operating system, which is the 'kernel'. Since some commands are much more efficiently done by the operating system (things like file management, e.g. (un)zipping files), the JupyterLab Python 3 Console that we're using makes it easy to also easily run shell commands by prefixing command with an exclamation mark `!`. 
+A 'shell' is an analogy for the layer that sits between the user and the operating system, which is the 'kernel'. Since some commands are much more efficiently done by the operating system (things like file management, e.g. (un)zipping files), the JupyterLab Python 3 Console that we're using makes it easy to also easily run shell commands by prefixing command with an exclamation mark `!` (and executing them as usual, with `Shift + Enter`).
 
 You can try out some shell commands such as:
 
-- `!echo "Hello!"`: Print 'Hello!' (same functionality as Python command above)
-- `!pwd`: Print the `p`resent `w`orking `d`irectory
-- `!ls`: Print a list of files and folders in the present working directory
+- Print 'Hello!' (same functionality as Python command above)
+
+    ```bash
+    !echo "Hello!"
+    ```
+
+- Print the `p`resent `w`orking `d`irectory
+
+    ```bash
+    !pwd
+    ```
 
 ## Wrap up
 

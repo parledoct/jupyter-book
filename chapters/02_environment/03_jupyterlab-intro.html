@@ -21,7 +21,7 @@
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -38,7 +38,7 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -53,7 +53,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Index" href="../../genindex.html" />
+    <link rel="next" title="Voice activity detection" href="../03_voice-activity-detection/00_index.html" />
     <link rel="prev" title="Resources on SaturnCloud" href="02_saturncloud-launch.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -106,7 +106,12 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="current nav bd-sidenav">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Background
+ </span>
+</p>
+<ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../01_overview/00_index.html">
    Machine-assisted speech processing
@@ -134,6 +139,13 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="00_index.html">
    Computation environment
@@ -161,6 +173,30 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../03_voice-activity-detection/00_index.html">
+   Voice activity detection
+  </a>
+  <input checked class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03_voice-activity-detection/01_defaults.html">
+     Using default parameters
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Reference
+ </span>
+</p>
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../genindex.html">
    Index
@@ -462,12 +498,19 @@ title="Print to PDF"
 </section>
 <section id="shell-commands">
 <h3>Shell commands<a class="headerlink" href="#shell-commands" title="Permalink to this headline">#</a></h3>
-<p>A ‘shell’ is an analogy for the layer that sits between the user and the operating system, which is the ‘kernel’. Since some commands are much more efficiently done by the operating system (things like file management, e.g. (un)zipping files), the JupyterLab Python 3 Console that we’re using makes it easy to also easily run shell commands by prefixing command with an exclamation mark <code class="docutils literal notranslate"><span class="pre">!</span></code>.</p>
+<p>A ‘shell’ is an analogy for the layer that sits between the user and the operating system, which is the ‘kernel’. Since some commands are much more efficiently done by the operating system (things like file management, e.g. (un)zipping files), the JupyterLab Python 3 Console that we’re using makes it easy to also easily run shell commands by prefixing command with an exclamation mark <code class="docutils literal notranslate"><span class="pre">!</span></code> (and executing them as usual, with <code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">Enter</span></code>).</p>
 <p>You can try out some shell commands such as:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">!echo</span> <span class="pre">&quot;Hello!&quot;</span></code>: Print ‘Hello!’ (same functionality as Python command above)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">!pwd</span></code>: Print the <code class="docutils literal notranslate"><span class="pre">p</span></code>resent <code class="docutils literal notranslate"><span class="pre">w</span></code>orking <code class="docutils literal notranslate"><span class="pre">d</span></code>irectory</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">!ls</span></code>: Print a list of files and folders in the present working directory</p></li>
+<ul>
+<li><p>Print ‘Hello!’ (same functionality as Python command above)</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>!echo <span class="s2">&quot;Hello!&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Print the <code class="docutils literal notranslate"><span class="pre">p</span></code>resent <code class="docutils literal notranslate"><span class="pre">w</span></code>orking <code class="docutils literal notranslate"><span class="pre">d</span></code>irectory</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>!pwd
+</pre></div>
+</div>
+</li>
 </ul>
 </section>
 </section>
@@ -511,10 +554,10 @@ title="Print to PDF"
             <p class="prev-next-title">Resources on SaturnCloud</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../../genindex.html" title="next page">
+    <a class='right-next' id="next-link" href="../03_voice-activity-detection/00_index.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Index</p>
+        <p class="prev-next-title">Voice activity detection</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
