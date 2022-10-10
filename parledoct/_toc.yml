@@ -15,6 +15,7 @@ parts:
       - file: chapters/02_environment/01_saturncloud-account
       - file: chapters/02_environment/02_saturncloud-launch
       - file: chapters/02_environment/03_jupyterlab-intro
+      - file: chapters/02_environment/04_recipe-template
   - file: chapters/03_voice-activity-detection/00_index
     sections:
       - file: chapters/03_voice-activity-detection/01_defaults

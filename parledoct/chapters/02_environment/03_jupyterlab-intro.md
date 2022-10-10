@@ -51,6 +51,28 @@ To run Python commands in the console, you can type in a Python command such as 
 ```{figure} saturncloud-jupyterlab-home-saturn-python3-hello.png
 ```
 
+#### Using Python packages
+
+As mentioned at the start of this chapter, we're going to be using specialised tools already developed by other people to offload the bulk of the data processing work.
+Most of these tools will come in the form of Python packages, which are bundles of code written by others that we can use.
+The SaturnCloud environments for each tutorial will have all the necessary packages pre-installed, so we'll just have to learn to use them (we'll cover package installation in later tutorials).
+
+In Python, we use the `import` statement to load the code associated with a given package into the current working environment.
+For a simple example, the `string` package provides a `capwords` function, which capitalizes each word in a sentence.
+So let's go ahead and import the `string` package:
+
+```python
+import string
+```
+
+With the `string` package imported, you can now make use of the `capwords` function:
+
+```python
+string.capwords("hello this is a test")
+
+# 'Hello This Is A Test'
+```
+
 ### Shell commands
 
 A 'shell' is an analogy for the layer that sits between the user and the operating system, which is the 'kernel'. Since some commands are much more efficiently done by the operating system (things like file management, e.g. (un)zipping files), the JupyterLab Python 3 Console that we're using makes it easy to also easily run shell commands by prefixing command with an exclamation mark `!` (and executing them as usual, with `Shift + Enter`).
@@ -69,6 +91,8 @@ You can try out some shell commands such as:
     !pwd
     ```
 
-## Wrap up
+Now that you have some basic familiarity with the computation environment, let's get familiar with the basic structure what the tutorials will look like.
 
-This concludes the JupyterLab basics tutorial! I'll grow the contents of this page as I uncover aspects of the JupyterLab interface that new users find confusing when going through the Parledoct material.
+<!-- ## Wrap up
+
+This concludes the JupyterLab basics tutorial! I'll grow the contents of this page as I uncover aspects of the JupyterLab interface that new users find confusing when going through the Parledoct material. -->

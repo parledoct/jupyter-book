@@ -3,161 +3,127 @@
 As mentioned, we'll use the [auditok](https://github.com/amsehili/auditok) Python package, which provides an easy way to detect regions in a sound file that are above a certain threshold of acoustic energy (defaults to `50 dB`). 
 We'll then use the [pympi](https://dopefishh.github.io/pympi/index.html) Python package to export the time regions to an ELAN file.
 
-Because there's 'admin' work when processing multiple files (e.g. getting the right file paths, deciding what to name the output file on-the-fly), we'll focus on processing just a single file in Part I.
-Then in Part II, we'll learn to set up the 'admin' work and apply the process we learned about to multiple files.
+## Part I: process toy example
 
-## Part I: A single file
-
-First let's process just a single file to make sure each step of the process results in the output we're expecting.
-
-### Import required packages
-
-Let's start by importing the packages we'll need:
-
-```python
-import auditok
-import pympi
-```
+As per the [recipe template](../02_environment/04_recipe-template.md), let's begin by getting familiar with the `auditok` and `pympi` packages using a toy example.
+In the `data` folder, there's a file `one_two_three.wav`, which is a short clip of me saying "One, two, three".
 
 ### Detect speech regions
 
-Now that we have imported `auditok` into our computation environment, we can use `auditok.split()` to obtain a list of speech regions where the acoustic activity is above the default 50 dB threshold in the `data/20180518o.wav` file.
+We can use the `split()` function from the `auditok` package to split an audio file and retain only the parts that satisfy certain requirements (e.g. acoustic energy above 50 db, by default).
 
 ```python
-speech_regions = auditok.split('data/20180518o.wav')
+import auditok
+
+speech_regions = list(auditok.split('data/one_two_three.wav'))
+```
+
+The result is a list of three `AudioRegion` objects:
+
+```
+[AudioRegion(duration=0.700, sampling_rate=48000, sample_width=2, channels=1),
+ AudioRegion(duration=0.650, sampling_rate=48000, sample_width=2, channels=1),
+ AudioRegion(duration=0.600, sampling_rate=48000, sample_width=2, channels=1)]
+```
+
+According to the [`auditok` package documentation](https://auditok.readthedocs.io/en/latest/examples.html#basic-split-example), the start and end time of each detected region is stored in its metadata:
+
+```python
+for region in speech_regions:
+
+    start_time = round(region.meta.start, 2)
+    end_time   = round(region.meta.end, 2)
+
+    print(f"Start: {start_time}, End: {end_time}")
+```
+
+```
+Start: 0.7, End: 1.4
+Start: 2.3, End: 2.95
+Start: 3.75, End: 4.35
 ```
 
 ### Export speech regions to ELAN
 
-#### Create and configure an `Eaf` object
-
-We can now export these speech regions to an ELAN file.
-First, we'll create a new, empty `Eaf` object by specifying `file_path=None` (if you specify a real file path, it'll load in the data from that file) and, for convenience, also add the wav file as a linked file so when we view the resulting `.eaf` file in ELAN later, the wav file will also be loaded in ELAN.
+Now that we're able to obtain a list of start and end times where speech activity is detected, let's learn how to use the `pympi` package to export the regions to an ELAN `.eaf` file.
+After importing the `pympi`, we can use `pympi.Elan.Eaf()` to create a new Eaf object.
+We use `file_path=None` to specify that we're *not* reading in data from an already-existing `.eaf` file.
 
 ```python
-annot_data = pympi.Elan.Eaf(file_path=None)
-annot_data.add_linked_file('20180518o.wav')
+import pympi
+
+eaf_data = pympi.Elan.Eaf(file_path=None)
 ```
 
-#### Add detected speech regions to `default` tier
-
-We'll loop through each detected region in `speech_regions` (which we just created using auditok) and add a blank annotation onto the `default` tier (automatically created by `pympi.Elan.Eaf`).
-The only thing we have to do to make the time regions detected by auditok (specified in seconds) to be compatible is to convert the times into milliseconds (as expected by the `add_annotation` function).
+Now we can loop over the detected speech regions in `data/one_two_three.wav` and add each region as a blank annotation value `''` to the `default` tier:
 
 ```python
 for region in speech_regions:
-    # auditok stores the start and end times (in seconds)
-    # as the metadata of each detected region. Convert to
-    # milliseconds to be compatible with the time format
-    # the add_annotation function is expecting
 
+    # Note add_annotation() below expects start and end to be in milliseconds
+    # so we multiply region.meta.start/region.meta.end by 1000
     start_ms = int(region.meta.start * 1000)
     end_ms   = int(region.meta.end * 1000)
 
-    # Add a blank annotation (value='') on the 'default' tier
-    annot_data.add_annotation(id_tier='default', start=start_ms, end=end_ms, value='')
+    eaf_data.add_annotation(id_tier='default', start=start_ms, end=end_ms, value='')
 ```
 
-```{important}
-If you're new to Python, note that whitespace/indentation is semantically meaningful. Instead of curly braces `{ ... }` which you might have seen in other languages (e.g. in R: `for (region in speech_regions) { ... }`), Python uses whitespace to specify that `start_ms = ...`, `end_ms = ...` and `annot_data.add_annotation(...)` are within the loop.
-```
-
-#### Write data to an Eaf file
-
-Now we can export the data to an `eaf` file:
+We're almost ready to write the `eaf_data` out to a sidecar file `'data/one_two_three.eaf'`.
+But for convenience, let's also add `'one_two_three.wav'` as a linked file so that ELAN will open the wav file when you open the `.eaf` file.
+Note that when we add linked files, the file path is relative to the wav file (we added `'one_two_three.wav'` not `'data/one_two_three.wav'` since `one_two_three.eaf` is already in `data`).
+Once the linked file is added, we use the `to_file()` to write the data from the Python environment to the file system.
 
 ```python
-annot_data.to_file('data/20180518o.eaf')
+eaf_data.add_linked_file('one_two_three.wav')
+eaf_data.to_file('data/one_two_three.eaf')
 ```
 
-### Download and view files
+If you go to the `data` folder, download `one_two_three.eaf` and `one_two_three.wav`, and open `one_two_three.eaf`, you will be able to see the detected speech regions placed on the default tier:
 
-To make it easy to download multiple files from the SaturnCloud server, let's zip up the `data/20180518o.eaf` we just created and the accompanying audio file `data/20180518o.wav`.
-
-```
-!zip vad01_single-file.zip -j data/20180518o.wav data/20180518o.eaf
+```{figure} vad_one-two-three.png
 ```
 
-Once the `vad01_single-file.zip` file appears in the JupyterLab file browser on the left (you may need to hit the refresh button), right-click and download the file onto your computer. Unzip the files and open up `20180518o.eaf` in ELAN. As expected, you should be able to see on the `default` tier speech regions that `auditok` have detected as being above the 50 dB threshold:
+## Part II: Process single file
 
-```{figure} vad_elan-single-file.png
-```
-
-## Part II: Multiple files in folder
-
-Once we're confident about a sequence of commands, we can have Python run those commands for each file we want to process.
-But now that we want to abstract away from a set of commands that worked on a fixed file path (i.e. `data/20180518o.wav`) to ones that work on an arbitrary list of files, we'll need to bring in some other packages to help handle these file paths.
-
-### Prerequisites: File paths in Python
-
-Let's take a moment to go over and familiarise ourselves with common file path maniupation routines since getting data from files you want to process and modifying/creating files that contain the processed data is a fundamental part learning to process your own data (even when you can treat the main processing function as a blackbox).
-
-#### Use `glob.glob()` to locate files of interest
-
-The `glob` function from the `glob` package takes an expression and returns a list of file paths that matches that expression. For example:
+Let's put together what we've learned from the toy example above to write a script that will process a single file of interest from the Ihanzu data.
+Let's start with the `'data/20180518o.wav'` file and create a sidecar file `'data/20180518o.eaf'` with the speech regions written onto the `default` tier as before.
 
 ```python
-# First, import glob if not already present in environment
-import glob
-
-# To see the output of each command, run each of them individually instead of
-# copying and pasting the entire codeblock.
-
-# List all files in current directory
-glob.glob('*')
-
-# List all files in data directory
-glob.glob('data/*')
-
-# List all wav files in data directory
-glob.glob('data/*.wav')
-
-# List all wav files in data directory ending with 'o' or 'p'
-glob.glob('data/*[o|p].wav')
-```
-
-In this way, when you're having to process a corpus with hundreds or thousands of files, you can use such expressions to target only the files you're interested in processing. It's *always* a good idea to at least eyeball the list of files returned, especially before running commands that modify or delete the files!
-
-#### Manipulating file paths
-
-##### Get basename from full path
-
-To create and configure the Eaf files, we also need to derive additional file paths from the wav file's 'full' path (e.g. `data/20180518o.wav`).
-
-First, we need to extract only the wav file's name (e.g. `20180518o.wav`) since linked files in Elan are expected to be relative paths (we don't want the a relative path of `data/20180518o.wav` which implies that the wav file is in `data/data/20180518o.wav` for the Elan file in `data/20180518o.eaf`).
-Across many programming languages, a file name without any path(s) prefixed to it is called the *basename*.
-In Python, we can use the `basename` function located in the `os` package (under the path-related functions):
-
-```python
+import auditok
 import os
+import pympi
 
-# From 'data/20180518o.wav', derive '20180518o.wav'
-os.path.basename('data/20180518o.wav')
+input_file  = 'data/20180518o.wav'
+
+speech_regions = auditok.split(input_file)
+
+eaf_data = pympi.Elan.Eaf(file_path=None)
+
+for region in speech_regions:
+
+    # Convert start/end times to milliseconds
+    start_ms = int(region.meta.start * 1000)
+    end_ms   = int(region.meta.end * 1000)
+
+    # Add region as blank annotation on default tier
+    eaf_data.add_annotation(id_tier='default', start=start_ms, end=end_ms, value='')
+
+# Add '20180518o.wav' as linked file, derived from 'data/20180518o.wav' using os.path.basename()
+eaf_data.add_linked_file(os.path.basename(input_file))
+
+# From 'data/20180518o.wav' derive sidecar filename 'data/20180518o.eaf'
+output_file = input_file.rsplit('.')[0] + '.eaf'
+
+eaf_data.to_file(output_file)
 ```
 
-##### Create full path for eaf file
+We have seen all the code snippets individually before (e.g. `auditok.split`, `pympi.Elan.Eaf`, etc.) and learned about what kinds of inputs they require and what the resulting output is.
+The one new function we've introduced is `os.path.basename`, which helps isolate the basename (e.g. `20180518o.wav`) from the full file path (e.g. `'data/20180518o.wav'`) so that we can add the wav file as a relative file to the ELAN eaf file.
 
-Second, we need to create a 'full' path to the Eaf file we'll be writing to (e.g. `data/20180518o.eaf`). So, we'll use the `rsplit('.')` function to split the wav path `data/20180518o.wav` based on the first `.` from the right side, yielding a list of two items `['data/20180518o', 'wav']`.
-Then, we'll take only the first element (`data/20180518o`) and postpend a new extension `.eaf` to get `data/20180518o.eaf`.
+As you can see a large part of data processing is wrangling the data that you have into an expected form (e.g. you have a full path `'data/20180518o.wav'` but ELAN expects linked files to be relative paths `20180518o.wav`) or wrangling the data produced as a result of some process into the form another process expects (e.g. `auditok.split` returns start/end times in seconds but `eaf_data.add_annotation` expects milliseconds).
+This is why it's important to start with almost comically simple toy data first to understand such details (the devil really is *always* in the details) and build up from there.
 
-```python
-file_path = 'data/20180518o.wav'
-
-# Split 'data/20180518o.wav' into 'data/20180518o' and 'wav'
-file_path.rsplit('.')
-
-# From 'data/20180518o.wav', derive 'data/20180518o'
-# Note Python indexes from 0, so the first element is at position 0
-file_path.rsplit('.')[0]
-
-# From 'data/20180518o.wav', derive 'data/20180518o.eaf'
-file_path.rsplit('.')[0] + '.eaf'
-```
-
-### Final script
-
-Based on Part I and what we've learned about file maniupation, you should be able to understand the gist of the following script, which will detect speech regions above 50 db and export these regions to accompany Eaf files for each wav file in the `data` folder.
-Copy the code below (hover over the top-right corner of the codeblock then click the `copy`), paste it into your console, and execute it.
+## Part III: Process multiple files
 
 ```python
 # Import required packages
@@ -166,36 +132,34 @@ import pympi
 import glob
 import os
 
-# Loop through each wav file in data folder
-for wav_file in glob.glob("data/*.wav"):
+# Loop through each wav file starting with '20180518' in data folder
+for input_file in glob.glob("data/20180518*.wav"):
 
     # Detect speech regions above 50 dB threshold
-    speech_regions = auditok.split(wav_file)
+    speech_regions = auditok.split(input_file)
 
     # Create placeholder Eaf Object
-    annot_data = pympi.Elan.Eaf(file_path=None)
-    # Add linked file
-    annot_data.add_linked_file(os.path.basename(wav_file))
+    eaf_data = pympi.Elan.Eaf(file_path=None)
 
     # Loop through each detected region 
     for region in speech_regions:
-        # auditok stores the start and end times (in seconds)
-        # as the metadata of each detected region. Convert to
-        # milliseconds to be compatible with the time format
-        # the add_annotation function is expecting
 
+        # Convert start/end times to milliseconds, expected by add_annotation()
         start_ms = int(region.meta.start * 1000)
         end_ms   = int(region.meta.end * 1000)
 
         # Add a blank annotation (value='') on the 'default' tier
-        annot_data.add_annotation(id_tier='default', start=start_ms, end=end_ms, value='')
+        eaf_data.add_annotation(id_tier='default', start=start_ms, end=end_ms, value='')
+
+    # Add linked file
+    eaf_data.add_linked_file(os.path.basename(input_file))
 
     # Obtain output Eaf file path from wav file's path
     # e.g. 'data/20180518o.wav' -> 'data/20180518o.eaf'
-    eaf_name = wav_file.rsplit('.')[0] + '.eaf'
+    output_file = input_file.rsplit('.')[0] + '.eaf'
 
     # Write Eaf data out to a file
-    annot_data.to_file(eaf_name)
+    eaf_data.to_file(output_file)
 ```
 
 :::{admonition} Tip
@@ -203,7 +167,7 @@ for wav_file in glob.glob("data/*.wav"):
 When you're developing your own scripts and are almost ready to process all your files, you may want to do some dry runs over a handful of files, for example, by taking just the first 2 items in the list of files returned by `glob.glob`:
 
 ```python
-for wav_file in glob.glob("data/*.wav")[:2]:
+for wav_file in glob.glob("data/20180518*.wav")[:2]:
 ```
 
 In this way, you can gradually develop your script for just 1 file, then a handful of files, and only run it on all your files when you're confident about it.
@@ -214,7 +178,7 @@ In this way, you can gradually develop your script for just 1 file, then a handf
 Let's zip up all wav and eaf files inside the `data` folder so you can download and view them on your computer:
 
 ```
-!zip vad02_multiple-files.zip -j data/*.wav data/*.eaf
+!zip vad02_multiple-files.zip -j data/20180518*.wav data/20180518*.eaf
 ```
 
 Once the `vad02_multiple-files.zip` file appears in the JupyterLab file browser on the left (you may need to hit the refresh button), right-click and download the file onto your computer. 
