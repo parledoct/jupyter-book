@@ -1,0 +1,736 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Recipe template &#8212; Parledoct</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/parledoct.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Voice activity detection" href="../03_voice-activity-detection/00_index.html" />
+    <link rel="prev" title="JupyterLab Interface" href="03_jupyterlab-intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Parledoct</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Background
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01_overview/00_index.html">
+   Machine-assisted speech processing
+  </a>
+  <input checked class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01_overview/01_task-definitions.html">
+     Tasks as multiple-choice questions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01_overview/02_feats-and-class.html">
+     Distill then decide
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01_overview/03_train-and-eval.html">
+     Training as searching for optimal parameters
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00_index.html">
+   Computation environment
+  </a>
+  <input checked class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_saturncloud-account.html">
+     Create SaturnCloud account
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_saturncloud-launch.html">
+     Resources on SaturnCloud
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_jupyterlab-intro.html">
+     JupyterLab Interface
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Recipe template
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../03_voice-activity-detection/00_index.html">
+   Voice activity detection
+  </a>
+  <input checked class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03_voice-activity-detection/01_defaults.html">
+     Using default parameters
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Reference
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../genindex.html">
+   Index
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/chapters/02_environment/04_recipe-template.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-i-process-toy-data">
+   Part I: process toy data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-ii-process-a-single-file">
+   Part II: process a single file
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#read-in-data">
+     Read in data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#process-data">
+     Process data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#write-data-to-sidecar-file">
+     Write data to sidecar file
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-iii-process-multiple-files">
+   Part III: process multiple files
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-a-list-of-files-of-interest">
+     Create a list of files of interest
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#derive-output-file-names">
+     Derive output file names
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#complete-script">
+     Complete script
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Recipe template</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-i-process-toy-data">
+   Part I: process toy data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-ii-process-a-single-file">
+   Part II: process a single file
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#read-in-data">
+     Read in data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#process-data">
+     Process data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#write-data-to-sidecar-file">
+     Write data to sidecar file
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-iii-process-multiple-files">
+   Part III: process multiple files
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-a-list-of-files-of-interest">
+     Create a list of files of interest
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#derive-output-file-names">
+     Derive output file names
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#complete-script">
+     Complete script
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="recipe-template">
+<h1>Recipe template<a class="headerlink" href="#recipe-template" title="Permalink to this headline">#</a></h1>
+<p>Like certain steps within a set of recipes that form a natural class (e.g. chopping onions for red/yellow/green Thai curries), the speech processing tasks that we’ll be learning about in later chapters have many steps in common (e.g. list all wav files, open wav file, create ELAN eaf file, etc.).</p>
+<p>In this section, we’ll cover these common steps using a very simple text processing task (converting French text into IPA representation).
+We’ll use a text processing task here so that we can easily open text files right in the JuyterLab environment (unlike audio and ELAN files which you would have to download to view).
+Additionally, we’ll also introduce the general three-part structure which you will find across all the tutorials.</p>
+<section id="part-i-process-toy-data">
+<h2>Part I: process toy data<a class="headerlink" href="#part-i-process-toy-data" title="Permalink to this headline">#</a></h2>
+<p>As mentioned in the <a class="reference external" href="03_jupyterlab-intro.html#using-python-packages">JupyterLab introduction</a>, we’ll be using various Python packages to do the heavy lifting.
+In the first part of the tutorial, we’ll learn to use a given package with some very simple data.
+In this case, we’ll be using the <code class="docutils literal notranslate"><span class="pre">eptrain</span></code> package to convert French text to IPA.
+Let’s start by importing the package:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">epitran</span>
+</pre></div>
+</div>
+<p>Since <code class="docutils literal notranslate"><span class="pre">epitran</span></code> <a href="https://github.com/dmort27/epitran#language-support" target="_blank">supports many languages</a>, the first thing we’ll do is set up a French-to-IPA converter as our input orthography is in French (language) using the Latin alphabet (script):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fra2ipa</span> <span class="o">=</span> <span class="n">epitran</span><span class="o">.</span><span class="n">Epitran</span><span class="p">(</span><span class="s1">&#39;fra-Latn&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now we can use the <code class="docutils literal notranslate"><span class="pre">transliterate</span></code> function to convert some French text to IPA:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fra2ipa</span><span class="o">.</span><span class="n">transliterate</span><span class="p">(</span><span class="s1">&#39;je vais à la maison&#39;</span><span class="p">)</span>
+
+<span class="c1"># &#39;ʒə vɛs a la mɛzɔ̃&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="part-ii-process-a-single-file">
+<h2>Part II: process a single file<a class="headerlink" href="#part-ii-process-a-single-file" title="Permalink to this headline">#</a></h2>
+<p>Once we’ve gained some familiarity with a given package, we can now move onto working with a single file that we’re interested in processing.
+Typically this will involve learning to read the data from the file into the Python environment, processing each sub-part of the file (e.g. lines in a text file or time regions in an audio file), and then writing to a ‘sidecar’ file (same name as the input file but with a different extension, e.g. <code class="docutils literal notranslate"><span class="pre">mydata.eaf</span></code> for an input file <code class="docutils literal notranslate"><span class="pre">mydata.wav</span></code>).</p>
+<section id="read-in-data">
+<h3>Read in data<a class="headerlink" href="#read-in-data" title="Permalink to this headline">#</a></h3>
+<p>Let’s process the file <code class="docutils literal notranslate"><span class="pre">data/french-nouns.txt</span></code> and create a sidecar file called <code class="docutils literal notranslate"><span class="pre">data/french-nouns.ipa</span></code> (just making up this <code class="docutils literal notranslate"><span class="pre">.ipa</span></code> extension for our tutorial).
+To read in a text file into Python, we have to open a file with the <code class="docutils literal notranslate"><span class="pre">r</span></code> specification to indicate that we want to read from the file, then read the file contents and split the data into lines for further processing, and close the file once we’re done with it:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/french-nouns.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">fra_lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Notice the contents of <code class="docutils literal notranslate"><span class="pre">fra_lines</span></code> is a list of French nouns from the file <code class="docutils literal notranslate"><span class="pre">data/french-nouns.txt</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;le cheval&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;le chien&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;le livre&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;le bruit&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;la colombe&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;la chemise&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;la maison&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;la liberté&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="process-data">
+<h3>Process data<a class="headerlink" href="#process-data" title="Permalink to this headline">#</a></h3>
+<p>We can now create a new list, called <code class="docutils literal notranslate"><span class="pre">ipa_lines</span></code> by applying the <code class="docutils literal notranslate"><span class="pre">fra2ipa.transliterate()</span></code> function to each item in the list above:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ipa_lines</span> <span class="o">=</span> <span class="p">[</span> <span class="n">fra2ipa</span><span class="o">.</span><span class="n">transliterate</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">fra_lines</span> <span class="p">]</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The specific syntax we are using here is called Python ‘<a href="https://www.learnbyexample.org/python-list-comprehension/" target="_blank">List Comprehensions</a>’, which are a very concise way of processing lists in Python in place of for loops:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Equivalent to list comprehension above</span>
+
+<span class="n">ipa_lines</span> <span class="o">=</span> <span class="p">[]</span>                              <span class="c1"># Initialise empty list</span>
+
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">fra_lines</span><span class="p">:</span>
+    <span class="n">ipa_line</span> <span class="o">=</span> <span class="n">fra2ipa</span><span class="o">.</span><span class="n">transliterate</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>  <span class="c1"># Process each item in </span>
+                                            <span class="c1">#   fra_lines list</span>
+    <span class="n">ipa_lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ipa_line</span><span class="p">)</span>              <span class="c1"># Add result to ipa_lines list</span>
+</pre></div>
+</div>
+</div>
+<p>The contents of <code class="docutils literal notranslate"><span class="pre">ipa_lines</span></code> is:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;lə ʃəval&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;lə ʃjɛ̃&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;lə livʀ&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;lə bʀɥi&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;la kɔlɔ̃b&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;la ʃəmiz&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;la mɛzɔ̃&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;la libɛʀte&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="write-data-to-sidecar-file">
+<h3>Write data to sidecar file<a class="headerlink" href="#write-data-to-sidecar-file" title="Permalink to this headline">#</a></h3>
+<p>We can now write our desired output to a sidecar file called <code class="docutils literal notranslate"><span class="pre">data/french-nouns.ipa</span></code>.
+Similar to before, we open up a file that we want to interact with but now with the <code class="docutils literal notranslate"><span class="pre">w</span></code> specification to indicate that we want to write to the file.
+Note the contents of the file, where we’re merge the items in the <code class="docutils literal notranslate"><span class="pre">ipa_lines</span></code> list above with a new line character in between them <code class="docutils literal notranslate"><span class="pre">&quot;\n&quot;</span></code>, and use <code class="docutils literal notranslate"><span class="pre">f.write()</span></code> to write to the file.
+Finally, we close the file once we’re done interacting with it.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/french-nouns.ipa&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ipa_lines</span><span class="p">))</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>To see the result of these commands, you can navigate to the <code class="docutils literal notranslate"><span class="pre">data</span></code> folder and open up the <code class="docutils literal notranslate"><span class="pre">french-nouns.ipa</span></code> file in that folder:</p>
+<figure class="align-default">
+<img alt="../../_images/recipe-template-french-nouns.png" src="../../_images/recipe-template-french-nouns.png" />
+</figure>
+<p>Altogether, the code to write to process a single file looks like:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">input_file</span>  <span class="o">=</span> <span class="s1">&#39;data/french-nouns.txt&#39;</span>
+<span class="n">output_file</span> <span class="o">=</span> <span class="s1">&#39;data/french-nouns.ipa&#39;</span>
+
+<span class="c1"># Read in data from input file</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">input_file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">fra_lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="c1"># Process data</span>
+<span class="n">ipa_lines</span> <span class="o">=</span> <span class="p">[</span> <span class="n">fra2ipa</span><span class="o">.</span><span class="n">transliterate</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">fra_lines</span> <span class="p">]</span>
+
+<span class="c1"># Write data to output file</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ipa_lines</span><span class="p">))</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Notice that we’ve abstracted the file names in the <code class="docutils literal notranslate"><span class="pre">open()</span></code> commands from specific paths like <code class="docutils literal notranslate"><span class="pre">'data/french-nouns.txt'</span></code> to a variable such as <code class="docutils literal notranslate"><span class="pre">input_file</span></code>.
+This way if we want to process another file, we can simply change the value of these variables and re-use the same code.</p>
+</section>
+</section>
+<section id="part-iii-process-multiple-files">
+<h2>Part III: process multiple files<a class="headerlink" href="#part-iii-process-multiple-files" title="Permalink to this headline">#</a></h2>
+<p>By the end of Part II, we should end up with some code that’s basically ready to be used on multiple files.
+The only thing we have left to do is specify which files we want to read from and which files we want to write the resulting output to.</p>
+<section id="create-a-list-of-files-of-interest">
+<h3>Create a list of files of interest<a class="headerlink" href="#create-a-list-of-files-of-interest" title="Permalink to this headline">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">glob</span></code> function from the <code class="docutils literal notranslate"><span class="pre">glob</span></code> package takes an expression and returns a list of file paths that matches that expression.
+In our case, we want to process text files in the <code class="docutils literal notranslate"><span class="pre">data</span></code> folder that are prefixed with <code class="docutils literal notranslate"><span class="pre">french-</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">french-adjectives.txt</span></code> and <code class="docutils literal notranslate"><span class="pre">french-nouns.txt</span></code>), so we can use the expression <code class="docutils literal notranslate"><span class="pre">data/french-*.txt</span></code> (where <code class="docutils literal notranslate"><span class="pre">*</span></code> is the ‘wildcard’ character).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># First, import glob if not already present in environment</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+
+<span class="c1"># List all files of interest in data directory</span>
+<span class="n">input_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;data/french-*.txt&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="derive-output-file-names">
+<h3>Derive output file names<a class="headerlink" href="#derive-output-file-names" title="Permalink to this headline">#</a></h3>
+<p>Since we’ll be mainly targeting sidecar files (same filename as input file but with a different extension), we’ll just need to derive the output file path by splitting the input filepath on the first <code class="docutils literal notranslate"><span class="pre">'.'</span></code> from the right side (i.e. <code class="docutils literal notranslate"><span class="pre">'data/french-nouns.txt'</span> <span class="pre">=&gt;</span> <span class="pre">['data/french-nouns',</span> <span class="pre">'txt']</span></code>), and then suffixing the new extension to the first item in the resulting split (i.e. <code class="docutils literal notranslate"><span class="pre">'data/french-nouns'</span> <span class="pre">+</span> <span class="pre">'.ipa'</span></code>).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">input_file</span>  <span class="o">=</span> <span class="s1">&#39;french-nouns.txt&#39;</span>
+<span class="n">output_file</span> <span class="o">=</span> <span class="n">input_file</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;.ipa&#39;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Python indexes from 0, so the first item of a list <code class="docutils literal notranslate"><span class="pre">x</span></code> is accessed as <code class="docutils literal notranslate"><span class="pre">x[0]</span></code> (and <code class="docutils literal notranslate"><span class="pre">x[]</span></code> is the second item).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;apples&#39;</span><span class="p">,</span> <span class="s1">&#39;oranges&#39;</span><span class="p">]</span>
+
+<span class="n">fruits</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="c1"># apples</span>
+
+<span class="n">fruits</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="c1"># oranges</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="complete-script">
+<h3>Complete script<a class="headerlink" href="#complete-script" title="Permalink to this headline">#</a></h3>
+<p>We can now put everything we’ve covered in this tutorial to read in French text from multiple text files and write out sidecar <code class="docutils literal notranslate"><span class="pre">.ipa</span></code> files which contain the IPA representations:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import Python packages that we want to use</span>
+<span class="kn">import</span> <span class="nn">epitran</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+
+<span class="c1"># Configure epitran</span>
+<span class="n">fra2ipa</span> <span class="o">=</span> <span class="n">epitran</span><span class="o">.</span><span class="n">Epitran</span><span class="p">(</span><span class="s1">&#39;fra-Latn&#39;</span><span class="p">)</span>
+
+<span class="c1"># List all files of interest in data directory</span>
+<span class="n">input_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;data/french-*.txt&#39;</span><span class="p">)</span>
+
+<span class="c1"># Process each file in input_files list</span>
+<span class="k">for</span> <span class="n">input_file</span> <span class="ow">in</span> <span class="n">input_files</span><span class="p">:</span>
+
+    <span class="c1"># Read in data from input file</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">input_file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+    <span class="n">fra_lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="c1"># Process data</span>
+    <span class="n">ipa_lines</span> <span class="o">=</span> <span class="p">[</span> <span class="n">fra2ipa</span><span class="o">.</span><span class="n">transliterate</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">fra_lines</span> <span class="p">]</span>
+
+    <span class="c1"># Derive output file name</span>
+    <span class="n">output_file</span> <span class="o">=</span> <span class="n">input_file</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;.ipa&#39;</span>    
+
+    <span class="c1"># Write data to output file</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ipa_lines</span><span class="p">))</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>If you’re new to Python, note that whitespace/indentation is semantically meaningful. Instead of curly braces <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">...</span> <span class="pre">}</span></code> which you might have seen in other languages (e.g. in R: <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">(input_file</span> <span class="pre">in</span> <span class="pre">input_files)</span> <span class="pre">{</span> <span class="pre">...</span> <span class="pre">}</span></code>), Python uses whitespace to specify that <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">=</span> <span class="pre">open</span> <span class="pre">...</span></code> and <code class="docutils literal notranslate"><span class="pre">fra_lines</span> <span class="pre">...</span></code> and all down to  <code class="docutils literal notranslate"><span class="pre">f.close()</span></code> are within the loop.</p>
+</div>
+<p>Congrats — you’re now familiar with the basic template of processing data from various input files of interest and writing out the results to a separate sidecar file.
+In our later tutorials, we’ll draw on this basic routine to process audio data, where the input files are audio files (e.g. <code class="docutils literal notranslate"><span class="pre">data/mydata.wav</span></code>) and the output files are sidecar ELAN files (e.g. <code class="docutils literal notranslate"><span class="pre">data/mydata.eaf</span></code>).
+The main thing that will change between each tutorial is what kind of speech processing task we’re performing (e.g. voice activity detection, speaker diarisation, etc.).</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapters/02_environment"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="03_jupyterlab-intro.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">JupyterLab Interface</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../03_voice-activity-detection/00_index.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Voice activity detection</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By <a href="https://resunay.com">Nay San</a><br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

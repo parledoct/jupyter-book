@@ -30,10 +30,6 @@ We'll be using some real fieldwork data on Ihanzu (a Bantu language spoken in Ta
 First let's download the data from Zenodo into the `tmp` folder using `wget` [Shell commands](../02_environment/03_jupyterlab-intro.html#shell-commands).
 Copy and paste the commands below into the text input area and press `Shift + Enter` to execute them.
 
-`````{tip}
-To copy code, you can hover your mouse over the top right corner of a code block until the a `Copy` button appears and then click the button to copy the contents of a code block.
-`````
-
 - **Get** data from the **w**eb url `http://zenodo.org/...` and write the data to the **o**utput file `tmp/data.zip` (specified `-O`):
 
     ```bash
@@ -46,5 +42,12 @@ To copy code, you can hover your mouse over the top right corner of a code block
     ```bash
     !unzip tmp/data.zip -d data/
     ```
+
+`````{tip}
+To copy code, you can hover your mouse over the top right corner of a code block until the a `Copy` button appears and then click the button to copy the contents of a code block.
+
+![copy-hover.png](copy-hover.png)
+
+`````
 
 Now that you have the environment and data ready, let's use `auditok` to perform voice activity detection!

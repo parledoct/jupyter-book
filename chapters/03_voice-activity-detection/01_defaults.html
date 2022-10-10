@@ -171,6 +171,11 @@ const thebe_selector_output = ".output, .cell_output"
      JupyterLab Interface
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02_environment/04_recipe-template.html">
+     Recipe template
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 current active has-children">
@@ -335,15 +340,10 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#part-i-a-single-file">
-   Part I: A single file
+  <a class="reference internal nav-link" href="#part-i-process-toy-example">
+   Part I: process toy example
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#import-required-packages">
-     Import required packages
-    </a>
-   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#detect-speech-regions">
      Detect speech regions
@@ -353,90 +353,21 @@ title="Print to PDF"
     <a class="reference internal nav-link" href="#export-speech-regions-to-elan">
      Export speech regions to ELAN
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#create-and-configure-an-eaf-object">
-       Create and configure an
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         Eaf
-        </span>
-       </code>
-       object
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#add-detected-speech-regions-to-default-tier">
-       Add detected speech regions to
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         default
-        </span>
-       </code>
-       tier
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#write-data-to-an-eaf-file">
-       Write data to an Eaf file
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#download-and-view-files">
-     Download and view files
-    </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#part-ii-multiple-files-in-folder">
-   Part II: Multiple files in folder
+  <a class="reference internal nav-link" href="#part-ii-process-single-file">
+   Part II: Process single file
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-iii-process-multiple-files">
+   Part III: Process multiple files
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#prerequisites-file-paths-in-python">
-     Prerequisites: File paths in Python
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#use-glob-glob-to-locate-files-of-interest">
-       Use
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         glob.glob()
-        </span>
-       </code>
-       to locate files of interest
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#manipulating-file-paths">
-       Manipulating file paths
-      </a>
-      <ul class="nav section-nav flex-column">
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#get-basename-from-full-path">
-         Get basename from full path
-        </a>
-       </li>
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#create-full-path-for-eaf-file">
-         Create full path for eaf file
-        </a>
-       </li>
-      </ul>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#final-script">
-     Final script
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
+    <a class="reference internal nav-link" href="#download-and-view-files">
      Download and view files
     </a>
    </li>
@@ -462,15 +393,10 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#part-i-a-single-file">
-   Part I: A single file
+  <a class="reference internal nav-link" href="#part-i-process-toy-example">
+   Part I: process toy example
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#import-required-packages">
-     Import required packages
-    </a>
-   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#detect-speech-regions">
      Detect speech regions
@@ -480,90 +406,21 @@ title="Print to PDF"
     <a class="reference internal nav-link" href="#export-speech-regions-to-elan">
      Export speech regions to ELAN
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#create-and-configure-an-eaf-object">
-       Create and configure an
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         Eaf
-        </span>
-       </code>
-       object
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#add-detected-speech-regions-to-default-tier">
-       Add detected speech regions to
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         default
-        </span>
-       </code>
-       tier
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#write-data-to-an-eaf-file">
-       Write data to an Eaf file
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#download-and-view-files">
-     Download and view files
-    </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#part-ii-multiple-files-in-folder">
-   Part II: Multiple files in folder
+  <a class="reference internal nav-link" href="#part-ii-process-single-file">
+   Part II: Process single file
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-iii-process-multiple-files">
+   Part III: Process multiple files
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#prerequisites-file-paths-in-python">
-     Prerequisites: File paths in Python
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#use-glob-glob-to-locate-files-of-interest">
-       Use
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         glob.glob()
-        </span>
-       </code>
-       to locate files of interest
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#manipulating-file-paths">
-       Manipulating file paths
-      </a>
-      <ul class="nav section-nav flex-column">
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#get-basename-from-full-path">
-         Get basename from full path
-        </a>
-       </li>
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#create-full-path-for-eaf-file">
-         Create full path for eaf file
-        </a>
-       </li>
-      </ul>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#final-script">
-     Final script
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
+    <a class="reference internal nav-link" href="#download-and-view-files">
      Download and view files
     </a>
    </li>
@@ -583,200 +440,161 @@ title="Print to PDF"
 <h1>Using default parameters<a class="headerlink" href="#using-default-parameters" title="Permalink to this headline">#</a></h1>
 <p>As mentioned, we’ll use the <a class="reference external" href="https://github.com/amsehili/auditok">auditok</a> Python package, which provides an easy way to detect regions in a sound file that are above a certain threshold of acoustic energy (defaults to <code class="docutils literal notranslate"><span class="pre">50</span> <span class="pre">dB</span></code>).
 We’ll then use the <a class="reference external" href="https://dopefishh.github.io/pympi/index.html">pympi</a> Python package to export the time regions to an ELAN file.</p>
-<p>Because there’s ‘admin’ work when processing multiple files (e.g. getting the right file paths, deciding what to name the output file on-the-fly), we’ll focus on processing just a single file in Part I.
-Then in Part II, we’ll learn to set up the ‘admin’ work and apply the process we learned about to multiple files.</p>
-<section id="part-i-a-single-file">
-<h2>Part I: A single file<a class="headerlink" href="#part-i-a-single-file" title="Permalink to this headline">#</a></h2>
-<p>First let’s process just a single file to make sure each step of the process results in the output we’re expecting.</p>
-<section id="import-required-packages">
-<h3>Import required packages<a class="headerlink" href="#import-required-packages" title="Permalink to this headline">#</a></h3>
-<p>Let’s start by importing the packages we’ll need:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">auditok</span>
-<span class="kn">import</span> <span class="nn">pympi</span>
-</pre></div>
-</div>
-</section>
+<section id="part-i-process-toy-example">
+<h2>Part I: process toy example<a class="headerlink" href="#part-i-process-toy-example" title="Permalink to this headline">#</a></h2>
+<p>As per the <a class="reference internal" href="../02_environment/04_recipe-template.html"><span class="doc std std-doc">recipe template</span></a>, let’s begin by getting familiar with the <code class="docutils literal notranslate"><span class="pre">auditok</span></code> and <code class="docutils literal notranslate"><span class="pre">pympi</span></code> packages using a toy example.
+In the <code class="docutils literal notranslate"><span class="pre">data</span></code> folder, there’s a file <code class="docutils literal notranslate"><span class="pre">one_two_three.wav</span></code>, which is a short clip of me saying “One, two, three”.</p>
 <section id="detect-speech-regions">
 <h3>Detect speech regions<a class="headerlink" href="#detect-speech-regions" title="Permalink to this headline">#</a></h3>
-<p>Now that we have imported <code class="docutils literal notranslate"><span class="pre">auditok</span></code> into our computation environment, we can use <code class="docutils literal notranslate"><span class="pre">auditok.split()</span></code> to obtain a list of speech regions where the acoustic activity is above the default 50 dB threshold in the <code class="docutils literal notranslate"><span class="pre">data/20180518o.wav</span></code> file.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">speech_regions</span> <span class="o">=</span> <span class="n">auditok</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;data/20180518o.wav&#39;</span><span class="p">)</span>
+<p>We can use the <code class="docutils literal notranslate"><span class="pre">split()</span></code> function from the <code class="docutils literal notranslate"><span class="pre">auditok</span></code> package to split an audio file and retain only the parts that satisfy certain requirements (e.g. acoustic energy above 50 db, by default).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">auditok</span>
+
+<span class="n">speech_regions</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">auditok</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;data/one_two_three.wav&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>The result is a list of three <code class="docutils literal notranslate"><span class="pre">AudioRegion</span></code> objects:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">AudioRegion</span><span class="p">(</span><span class="n">duration</span><span class="o">=</span><span class="mf">0.700</span><span class="p">,</span> <span class="n">sampling_rate</span><span class="o">=</span><span class="mi">48000</span><span class="p">,</span> <span class="n">sample_width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">channels</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+ <span class="n">AudioRegion</span><span class="p">(</span><span class="n">duration</span><span class="o">=</span><span class="mf">0.650</span><span class="p">,</span> <span class="n">sampling_rate</span><span class="o">=</span><span class="mi">48000</span><span class="p">,</span> <span class="n">sample_width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">channels</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+ <span class="n">AudioRegion</span><span class="p">(</span><span class="n">duration</span><span class="o">=</span><span class="mf">0.600</span><span class="p">,</span> <span class="n">sampling_rate</span><span class="o">=</span><span class="mi">48000</span><span class="p">,</span> <span class="n">sample_width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">channels</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p>According to the <a class="reference external" href="https://auditok.readthedocs.io/en/latest/examples.html#basic-split-example"><code class="docutils literal notranslate"><span class="pre">auditok</span></code> package documentation</a>, the start and end time of each detected region is stored in its metadata:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">region</span> <span class="ow">in</span> <span class="n">speech_regions</span><span class="p">:</span>
+
+    <span class="n">start_time</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">region</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">start</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">end_time</span>   <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">region</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">end</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Start: </span><span class="si">{</span><span class="n">start_time</span><span class="si">}</span><span class="s2">, End: </span><span class="si">{</span><span class="n">end_time</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Start</span><span class="p">:</span> <span class="mf">0.7</span><span class="p">,</span> <span class="n">End</span><span class="p">:</span> <span class="mf">1.4</span>
+<span class="n">Start</span><span class="p">:</span> <span class="mf">2.3</span><span class="p">,</span> <span class="n">End</span><span class="p">:</span> <span class="mf">2.95</span>
+<span class="n">Start</span><span class="p">:</span> <span class="mf">3.75</span><span class="p">,</span> <span class="n">End</span><span class="p">:</span> <span class="mf">4.35</span>
 </pre></div>
 </div>
 </section>
 <section id="export-speech-regions-to-elan">
 <h3>Export speech regions to ELAN<a class="headerlink" href="#export-speech-regions-to-elan" title="Permalink to this headline">#</a></h3>
-<section id="create-and-configure-an-eaf-object">
-<h4>Create and configure an <code class="docutils literal notranslate"><span class="pre">Eaf</span></code> object<a class="headerlink" href="#create-and-configure-an-eaf-object" title="Permalink to this headline">#</a></h4>
-<p>We can now export these speech regions to an ELAN file.
-First, we’ll create a new, empty <code class="docutils literal notranslate"><span class="pre">Eaf</span></code> object by specifying <code class="docutils literal notranslate"><span class="pre">file_path=None</span></code> (if you specify a real file path, it’ll load in the data from that file) and, for convenience, also add the wav file as a linked file so when we view the resulting <code class="docutils literal notranslate"><span class="pre">.eaf</span></code> file in ELAN later, the wav file will also be loaded in ELAN.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">annot_data</span> <span class="o">=</span> <span class="n">pympi</span><span class="o">.</span><span class="n">Elan</span><span class="o">.</span><span class="n">Eaf</span><span class="p">(</span><span class="n">file_path</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-<span class="n">annot_data</span><span class="o">.</span><span class="n">add_linked_file</span><span class="p">(</span><span class="s1">&#39;20180518o.wav&#39;</span><span class="p">)</span>
+<p>Now that we’re able to obtain a list of start and end times where speech activity is detected, let’s learn how to use the <code class="docutils literal notranslate"><span class="pre">pympi</span></code> package to export the regions to an ELAN <code class="docutils literal notranslate"><span class="pre">.eaf</span></code> file.
+After importing the <code class="docutils literal notranslate"><span class="pre">pympi</span></code>, we can use <code class="docutils literal notranslate"><span class="pre">pympi.Elan.Eaf()</span></code> to create a new Eaf object.
+We use <code class="docutils literal notranslate"><span class="pre">file_path=None</span></code> to specify that we’re <em>not</em> reading in data from an already-existing <code class="docutils literal notranslate"><span class="pre">.eaf</span></code> file.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pympi</span>
+
+<span class="n">eaf_data</span> <span class="o">=</span> <span class="n">pympi</span><span class="o">.</span><span class="n">Elan</span><span class="o">.</span><span class="n">Eaf</span><span class="p">(</span><span class="n">file_path</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </pre></div>
 </div>
-</section>
-<section id="add-detected-speech-regions-to-default-tier">
-<h4>Add detected speech regions to <code class="docutils literal notranslate"><span class="pre">default</span></code> tier<a class="headerlink" href="#add-detected-speech-regions-to-default-tier" title="Permalink to this headline">#</a></h4>
-<p>We’ll loop through each detected region in <code class="docutils literal notranslate"><span class="pre">speech_regions</span></code> (which we just created using auditok) and add a blank annotation onto the <code class="docutils literal notranslate"><span class="pre">default</span></code> tier (automatically created by <code class="docutils literal notranslate"><span class="pre">pympi.Elan.Eaf</span></code>).
-The only thing we have to do to make the time regions detected by auditok (specified in seconds) to be compatible is to convert the times into milliseconds (as expected by the <code class="docutils literal notranslate"><span class="pre">add_annotation</span></code> function).</p>
+<p>Now we can loop over the detected speech regions in <code class="docutils literal notranslate"><span class="pre">data/one_two_three.wav</span></code> and add each region as a blank annotation value <code class="docutils literal notranslate"><span class="pre">''</span></code> to the <code class="docutils literal notranslate"><span class="pre">default</span></code> tier:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">region</span> <span class="ow">in</span> <span class="n">speech_regions</span><span class="p">:</span>
-    <span class="c1"># auditok stores the start and end times (in seconds)</span>
-    <span class="c1"># as the metadata of each detected region. Convert to</span>
-    <span class="c1"># milliseconds to be compatible with the time format</span>
-    <span class="c1"># the add_annotation function is expecting</span>
 
+    <span class="c1"># Note add_annotation() below expects start and end to be in milliseconds</span>
+    <span class="c1"># so we multiply region.meta.start/region.meta.end by 1000</span>
     <span class="n">start_ms</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">region</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">start</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">)</span>
     <span class="n">end_ms</span>   <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">region</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">end</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">)</span>
 
-    <span class="c1"># Add a blank annotation (value=&#39;&#39;) on the &#39;default&#39; tier</span>
-    <span class="n">annot_data</span><span class="o">.</span><span class="n">add_annotation</span><span class="p">(</span><span class="n">id_tier</span><span class="o">=</span><span class="s1">&#39;default&#39;</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start_ms</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end_ms</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="n">eaf_data</span><span class="o">.</span><span class="n">add_annotation</span><span class="p">(</span><span class="n">id_tier</span><span class="o">=</span><span class="s1">&#39;default&#39;</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start_ms</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end_ms</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>If you’re new to Python, note that whitespace/indentation is semantically meaningful. Instead of curly braces <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">...</span> <span class="pre">}</span></code> which you might have seen in other languages (e.g. in R: <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">(region</span> <span class="pre">in</span> <span class="pre">speech_regions)</span> <span class="pre">{</span> <span class="pre">...</span> <span class="pre">}</span></code>), Python uses whitespace to specify that <code class="docutils literal notranslate"><span class="pre">start_ms</span> <span class="pre">=</span> <span class="pre">...</span></code>, <code class="docutils literal notranslate"><span class="pre">end_ms</span> <span class="pre">=</span> <span class="pre">...</span></code> and <code class="docutils literal notranslate"><span class="pre">annot_data.add_annotation(...)</span></code> are within the loop.</p>
-</div>
-</section>
-<section id="write-data-to-an-eaf-file">
-<h4>Write data to an Eaf file<a class="headerlink" href="#write-data-to-an-eaf-file" title="Permalink to this headline">#</a></h4>
-<p>Now we can export the data to an <code class="docutils literal notranslate"><span class="pre">eaf</span></code> file:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">annot_data</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="s1">&#39;data/20180518o.eaf&#39;</span><span class="p">)</span>
+<p>We’re almost ready to write the <code class="docutils literal notranslate"><span class="pre">eaf_data</span></code> out to a sidecar file <code class="docutils literal notranslate"><span class="pre">'data/one_two_three.eaf'</span></code>.
+But for convenience, let’s also add <code class="docutils literal notranslate"><span class="pre">'one_two_three.wav'</span></code> as a linked file so that ELAN will open the wav file when you open the <code class="docutils literal notranslate"><span class="pre">.eaf</span></code> file.
+Note that when we add linked files, the file path is relative to the wav file (we added <code class="docutils literal notranslate"><span class="pre">'one_two_three.wav'</span></code> not <code class="docutils literal notranslate"><span class="pre">'data/one_two_three.wav'</span></code> since <code class="docutils literal notranslate"><span class="pre">one_two_three.eaf</span></code> is already in <code class="docutils literal notranslate"><span class="pre">data</span></code>).
+Once the linked file is added, we use the <code class="docutils literal notranslate"><span class="pre">to_file()</span></code> to write the data from the Python environment to the file system.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">eaf_data</span><span class="o">.</span><span class="n">add_linked_file</span><span class="p">(</span><span class="s1">&#39;one_two_three.wav&#39;</span><span class="p">)</span>
+<span class="n">eaf_data</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="s1">&#39;data/one_two_three.eaf&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</section>
-</section>
-<section id="download-and-view-files">
-<h3>Download and view files<a class="headerlink" href="#download-and-view-files" title="Permalink to this headline">#</a></h3>
-<p>To make it easy to download multiple files from the SaturnCloud server, let’s zip up the <code class="docutils literal notranslate"><span class="pre">data/20180518o.eaf</span></code> we just created and the accompanying audio file <code class="docutils literal notranslate"><span class="pre">data/20180518o.wav</span></code>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!zip vad01_single-file.zip -j data/20180518o.wav data/20180518o.eaf
-</pre></div>
-</div>
-<p>Once the <code class="docutils literal notranslate"><span class="pre">vad01_single-file.zip</span></code> file appears in the JupyterLab file browser on the left (you may need to hit the refresh button), right-click and download the file onto your computer. Unzip the files and open up <code class="docutils literal notranslate"><span class="pre">20180518o.eaf</span></code> in ELAN. As expected, you should be able to see on the <code class="docutils literal notranslate"><span class="pre">default</span></code> tier speech regions that <code class="docutils literal notranslate"><span class="pre">auditok</span></code> have detected as being above the 50 dB threshold:</p>
+<p>If you go to the <code class="docutils literal notranslate"><span class="pre">data</span></code> folder, download <code class="docutils literal notranslate"><span class="pre">one_two_three.eaf</span></code> and <code class="docutils literal notranslate"><span class="pre">one_two_three.wav</span></code>, and open <code class="docutils literal notranslate"><span class="pre">one_two_three.eaf</span></code>, you will be able to see the detected speech regions placed on the default tier:</p>
 <figure class="align-default">
-<img alt="../../_images/vad_elan-single-file.png" src="../../_images/vad_elan-single-file.png" />
+<img alt="../../_images/vad_one-two-three.png" src="../../_images/vad_one-two-three.png" />
 </figure>
 </section>
 </section>
-<section id="part-ii-multiple-files-in-folder">
-<h2>Part II: Multiple files in folder<a class="headerlink" href="#part-ii-multiple-files-in-folder" title="Permalink to this headline">#</a></h2>
-<p>Once we’re confident about a sequence of commands, we can have Python run those commands for each file we want to process.
-But now that we want to abstract away from a set of commands that worked on a fixed file path (i.e. <code class="docutils literal notranslate"><span class="pre">data/20180518o.wav</span></code>) to ones that work on an arbitrary list of files, we’ll need to bring in some other packages to help handle these file paths.</p>
-<section id="prerequisites-file-paths-in-python">
-<h3>Prerequisites: File paths in Python<a class="headerlink" href="#prerequisites-file-paths-in-python" title="Permalink to this headline">#</a></h3>
-<p>Let’s take a moment to go over and familiarise ourselves with common file path maniupation routines since getting data from files you want to process and modifying/creating files that contain the processed data is a fundamental part learning to process your own data (even when you can treat the main processing function as a blackbox).</p>
-<section id="use-glob-glob-to-locate-files-of-interest">
-<h4>Use <code class="docutils literal notranslate"><span class="pre">glob.glob()</span></code> to locate files of interest<a class="headerlink" href="#use-glob-glob-to-locate-files-of-interest" title="Permalink to this headline">#</a></h4>
-<p>The <code class="docutils literal notranslate"><span class="pre">glob</span></code> function from the <code class="docutils literal notranslate"><span class="pre">glob</span></code> package takes an expression and returns a list of file paths that matches that expression. For example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># First, import glob if not already present in environment</span>
-<span class="kn">import</span> <span class="nn">glob</span>
+<section id="part-ii-process-single-file">
+<h2>Part II: Process single file<a class="headerlink" href="#part-ii-process-single-file" title="Permalink to this headline">#</a></h2>
+<p>Let’s put together what we’ve learned from the toy example above to write a script that will process a single file of interest from the Ihanzu data.
+Let’s start with the <code class="docutils literal notranslate"><span class="pre">'data/20180518o.wav'</span></code> file and create a sidecar file <code class="docutils literal notranslate"><span class="pre">'data/20180518o.eaf'</span></code> with the speech regions written onto the <code class="docutils literal notranslate"><span class="pre">default</span></code> tier as before.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">auditok</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pympi</span>
 
-<span class="c1"># To see the output of each command, run each of them individually instead of</span>
-<span class="c1"># copying and pasting the entire codeblock.</span>
+<span class="n">input_file</span>  <span class="o">=</span> <span class="s1">&#39;data/20180518o.wav&#39;</span>
 
-<span class="c1"># List all files in current directory</span>
-<span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;*&#39;</span><span class="p">)</span>
+<span class="n">speech_regions</span> <span class="o">=</span> <span class="n">auditok</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">input_file</span><span class="p">)</span>
 
-<span class="c1"># List all files in data directory</span>
-<span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;data/*&#39;</span><span class="p">)</span>
+<span class="n">eaf_data</span> <span class="o">=</span> <span class="n">pympi</span><span class="o">.</span><span class="n">Elan</span><span class="o">.</span><span class="n">Eaf</span><span class="p">(</span><span class="n">file_path</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 
-<span class="c1"># List all wav files in data directory</span>
-<span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;data/*.wav&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">region</span> <span class="ow">in</span> <span class="n">speech_regions</span><span class="p">:</span>
 
-<span class="c1"># List all wav files in data directory ending with &#39;o&#39; or &#39;p&#39;</span>
-<span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;data/*[o|p].wav&#39;</span><span class="p">)</span>
+    <span class="c1"># Convert start/end times to milliseconds</span>
+    <span class="n">start_ms</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">region</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">start</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">)</span>
+    <span class="n">end_ms</span>   <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">region</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">end</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">)</span>
+
+    <span class="c1"># Add region as blank annotation on default tier</span>
+    <span class="n">eaf_data</span><span class="o">.</span><span class="n">add_annotation</span><span class="p">(</span><span class="n">id_tier</span><span class="o">=</span><span class="s1">&#39;default&#39;</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start_ms</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end_ms</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add &#39;20180518o.wav&#39; as linked file, derived from &#39;data/20180518o.wav&#39; using os.path.basename()</span>
+<span class="n">eaf_data</span><span class="o">.</span><span class="n">add_linked_file</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">input_file</span><span class="p">))</span>
+
+<span class="c1"># From &#39;data/20180518o.wav&#39; derive sidecar filename &#39;data/20180518o.eaf&#39;</span>
+<span class="n">output_file</span> <span class="o">=</span> <span class="n">input_file</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;.eaf&#39;</span>
+
+<span class="n">eaf_data</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="n">output_file</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>In this way, when you’re having to process a corpus with hundreds or thousands of files, you can use such expressions to target only the files you’re interested in processing. It’s <em>always</em> a good idea to at least eyeball the list of files returned, especially before running commands that modify or delete the files!</p>
+<p>We have seen all the code snippets individually before (e.g. <code class="docutils literal notranslate"><span class="pre">auditok.split</span></code>, <code class="docutils literal notranslate"><span class="pre">pympi.Elan.Eaf</span></code>, etc.) and learned about what kinds of inputs they require and what the resulting output is.
+The one new function we’ve introduced is <code class="docutils literal notranslate"><span class="pre">os.path.basename</span></code>, which helps isolate the basename (e.g. <code class="docutils literal notranslate"><span class="pre">20180518o.wav</span></code>) from the full file path (e.g. <code class="docutils literal notranslate"><span class="pre">'data/20180518o.wav'</span></code>) so that we can add the wav file as a relative file to the ELAN eaf file.</p>
+<p>As you can see a large part of data processing is wrangling the data that you have into an expected form (e.g. you have a full path <code class="docutils literal notranslate"><span class="pre">'data/20180518o.wav'</span></code> but ELAN expects linked files to be relative paths <code class="docutils literal notranslate"><span class="pre">20180518o.wav</span></code>) or wrangling the data produced as a result of some process into the form another process expects (e.g. <code class="docutils literal notranslate"><span class="pre">auditok.split</span></code> returns start/end times in seconds but <code class="docutils literal notranslate"><span class="pre">eaf_data.add_annotation</span></code> expects milliseconds).
+This is why it’s important to start with almost comically simple toy data first to understand such details (the devil really is <em>always</em> in the details) and build up from there.</p>
 </section>
-<section id="manipulating-file-paths">
-<h4>Manipulating file paths<a class="headerlink" href="#manipulating-file-paths" title="Permalink to this headline">#</a></h4>
-<section id="get-basename-from-full-path">
-<h5>Get basename from full path<a class="headerlink" href="#get-basename-from-full-path" title="Permalink to this headline">#</a></h5>
-<p>To create and configure the Eaf files, we also need to derive additional file paths from the wav file’s ‘full’ path (e.g. <code class="docutils literal notranslate"><span class="pre">data/20180518o.wav</span></code>).</p>
-<p>First, we need to extract only the wav file’s name (e.g. <code class="docutils literal notranslate"><span class="pre">20180518o.wav</span></code>) since linked files in Elan are expected to be relative paths (we don’t want the a relative path of <code class="docutils literal notranslate"><span class="pre">data/20180518o.wav</span></code> which implies that the wav file is in <code class="docutils literal notranslate"><span class="pre">data/data/20180518o.wav</span></code> for the Elan file in <code class="docutils literal notranslate"><span class="pre">data/20180518o.eaf</span></code>).
-Across many programming languages, a file name without any path(s) prefixed to it is called the <em>basename</em>.
-In Python, we can use the <code class="docutils literal notranslate"><span class="pre">basename</span></code> function located in the <code class="docutils literal notranslate"><span class="pre">os</span></code> package (under the path-related functions):</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-
-<span class="c1"># From &#39;data/20180518o.wav&#39;, derive &#39;20180518o.wav&#39;</span>
-<span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="s1">&#39;data/20180518o.wav&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
-<section id="create-full-path-for-eaf-file">
-<h5>Create full path for eaf file<a class="headerlink" href="#create-full-path-for-eaf-file" title="Permalink to this headline">#</a></h5>
-<p>Second, we need to create a ‘full’ path to the Eaf file we’ll be writing to (e.g. <code class="docutils literal notranslate"><span class="pre">data/20180518o.eaf</span></code>). So, we’ll use the <code class="docutils literal notranslate"><span class="pre">rsplit('.')</span></code> function to split the wav path <code class="docutils literal notranslate"><span class="pre">data/20180518o.wav</span></code> based on the first <code class="docutils literal notranslate"><span class="pre">.</span></code> from the right side, yielding a list of two items <code class="docutils literal notranslate"><span class="pre">['data/20180518o',</span> <span class="pre">'wav']</span></code>.
-Then, we’ll take only the first element (<code class="docutils literal notranslate"><span class="pre">data/20180518o</span></code>) and postpend a new extension <code class="docutils literal notranslate"><span class="pre">.eaf</span></code> to get <code class="docutils literal notranslate"><span class="pre">data/20180518o.eaf</span></code>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">file_path</span> <span class="o">=</span> <span class="s1">&#39;data/20180518o.wav&#39;</span>
-
-<span class="c1"># Split &#39;data/20180518o.wav&#39; into &#39;data/20180518o&#39; and &#39;wav&#39;</span>
-<span class="n">file_path</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
-
-<span class="c1"># From &#39;data/20180518o.wav&#39;, derive &#39;data/20180518o&#39;</span>
-<span class="c1"># Note Python indexes from 0, so the first element is at position 0</span>
-<span class="n">file_path</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-
-<span class="c1"># From &#39;data/20180518o.wav&#39;, derive &#39;data/20180518o.eaf&#39;</span>
-<span class="n">file_path</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;.eaf&#39;</span>
-</pre></div>
-</div>
-</section>
-</section>
-</section>
-<section id="final-script">
-<h3>Final script<a class="headerlink" href="#final-script" title="Permalink to this headline">#</a></h3>
-<p>Based on Part I and what we’ve learned about file maniupation, you should be able to understand the gist of the following script, which will detect speech regions above 50 db and export these regions to accompany Eaf files for each wav file in the <code class="docutils literal notranslate"><span class="pre">data</span></code> folder.
-Copy the code below (hover over the top-right corner of the codeblock then click the <code class="docutils literal notranslate"><span class="pre">copy</span></code>), paste it into your console, and execute it.</p>
+<section id="part-iii-process-multiple-files">
+<h2>Part III: Process multiple files<a class="headerlink" href="#part-iii-process-multiple-files" title="Permalink to this headline">#</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import required packages</span>
 <span class="kn">import</span> <span class="nn">auditok</span>
 <span class="kn">import</span> <span class="nn">pympi</span>
 <span class="kn">import</span> <span class="nn">glob</span>
 <span class="kn">import</span> <span class="nn">os</span>
 
-<span class="c1"># Loop through each wav file in data folder</span>
-<span class="k">for</span> <span class="n">wav_file</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;data/*.wav&quot;</span><span class="p">):</span>
+<span class="c1"># Loop through each wav file starting with &#39;20180518&#39; in data folder</span>
+<span class="k">for</span> <span class="n">input_file</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;data/20180518*.wav&quot;</span><span class="p">):</span>
 
     <span class="c1"># Detect speech regions above 50 dB threshold</span>
-    <span class="n">speech_regions</span> <span class="o">=</span> <span class="n">auditok</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">wav_file</span><span class="p">)</span>
+    <span class="n">speech_regions</span> <span class="o">=</span> <span class="n">auditok</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">input_file</span><span class="p">)</span>
 
     <span class="c1"># Create placeholder Eaf Object</span>
-    <span class="n">annot_data</span> <span class="o">=</span> <span class="n">pympi</span><span class="o">.</span><span class="n">Elan</span><span class="o">.</span><span class="n">Eaf</span><span class="p">(</span><span class="n">file_path</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-    <span class="c1"># Add linked file</span>
-    <span class="n">annot_data</span><span class="o">.</span><span class="n">add_linked_file</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">wav_file</span><span class="p">))</span>
+    <span class="n">eaf_data</span> <span class="o">=</span> <span class="n">pympi</span><span class="o">.</span><span class="n">Elan</span><span class="o">.</span><span class="n">Eaf</span><span class="p">(</span><span class="n">file_path</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 
     <span class="c1"># Loop through each detected region </span>
     <span class="k">for</span> <span class="n">region</span> <span class="ow">in</span> <span class="n">speech_regions</span><span class="p">:</span>
-        <span class="c1"># auditok stores the start and end times (in seconds)</span>
-        <span class="c1"># as the metadata of each detected region. Convert to</span>
-        <span class="c1"># milliseconds to be compatible with the time format</span>
-        <span class="c1"># the add_annotation function is expecting</span>
 
+        <span class="c1"># Convert start/end times to milliseconds, expected by add_annotation()</span>
         <span class="n">start_ms</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">region</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">start</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">)</span>
         <span class="n">end_ms</span>   <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">region</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">end</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">)</span>
 
         <span class="c1"># Add a blank annotation (value=&#39;&#39;) on the &#39;default&#39; tier</span>
-        <span class="n">annot_data</span><span class="o">.</span><span class="n">add_annotation</span><span class="p">(</span><span class="n">id_tier</span><span class="o">=</span><span class="s1">&#39;default&#39;</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start_ms</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end_ms</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="n">eaf_data</span><span class="o">.</span><span class="n">add_annotation</span><span class="p">(</span><span class="n">id_tier</span><span class="o">=</span><span class="s1">&#39;default&#39;</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start_ms</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end_ms</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Add linked file</span>
+    <span class="n">eaf_data</span><span class="o">.</span><span class="n">add_linked_file</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">input_file</span><span class="p">))</span>
 
     <span class="c1"># Obtain output Eaf file path from wav file&#39;s path</span>
     <span class="c1"># e.g. &#39;data/20180518o.wav&#39; -&gt; &#39;data/20180518o.eaf&#39;</span>
-    <span class="n">eaf_name</span> <span class="o">=</span> <span class="n">wav_file</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;.eaf&#39;</span>
+    <span class="n">output_file</span> <span class="o">=</span> <span class="n">input_file</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;.eaf&#39;</span>
 
     <span class="c1"># Write Eaf data out to a file</span>
-    <span class="n">annot_data</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="n">eaf_name</span><span class="p">)</span>
+    <span class="n">eaf_data</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="n">output_file</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="tip admonition">
 <p class="admonition-title">Tip</p>
 <p>When you’re developing your own scripts and are almost ready to process all your files, you may want to do some dry runs over a handful of files, for example, by taking just the first 2 items in the list of files returned by <code class="docutils literal notranslate"><span class="pre">glob.glob</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">wav_file</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;data/*.wav&quot;</span><span class="p">)[:</span><span class="mi">2</span><span class="p">]:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">wav_file</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;data/20180518*.wav&quot;</span><span class="p">)[:</span><span class="mi">2</span><span class="p">]:</span>
 </pre></div>
 </div>
 <p>In this way, you can gradually develop your script for just 1 file, then a handful of files, and only run it on all your files when you’re confident about it.</p>
 </div>
-</section>
-<section id="id1">
-<h3>Download and view files<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<section id="download-and-view-files">
+<h3>Download and view files<a class="headerlink" href="#download-and-view-files" title="Permalink to this headline">#</a></h3>
 <p>Let’s zip up all wav and eaf files inside the <code class="docutils literal notranslate"><span class="pre">data</span></code> folder so you can download and view them on your computer:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!zip vad02_multiple-files.zip -j data/*.wav data/*.eaf
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!zip vad02_multiple-files.zip -j data/20180518*.wav data/20180518*.eaf
 </pre></div>
 </div>
 <p>Once the <code class="docutils literal notranslate"><span class="pre">vad02_multiple-files.zip</span></code> file appears in the JupyterLab file browser on the left (you may need to hit the refresh button), right-click and download the file onto your computer.</p>

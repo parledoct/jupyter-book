@@ -11,7 +11,7 @@ On the free plan, **SaturnCloud will automatically stop a Resource after an hour
 Every tutorial will have an `Environment` section with a 'Create Resource on SaturnCloud' button. Let's make a new resource for this introduction, so go ahead and click the one below:
 
 <p align="center">
-<a target="_blank" href="https://app.community.saturnenterprise.io/dash/o/community/resources?recipeUrl=https://gist.githubusercontent.com/fauxneticien/68313eb494337f60f69d140c8270f3d7/raw/0c51d3d5d7fbe33f096f4565b633c1a8709d6feb/jupyter-introduction.json">
+<a target="_blank" href="https://app.community.saturnenterprise.io/dash/o/community/resources?recipeUrl=https://gist.githubusercontent.com/fauxneticien/68313eb494337f60f69d140c8270f3d7/raw/e997bf3eeb962d0431eba35963168d5f557754a7/jupyter-introduction.json">
 <button class="saturn" role="button">Create Resource on SaturnCloud</button>
 </a>
 </p>

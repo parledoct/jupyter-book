@@ -53,7 +53,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Voice activity detection" href="../03_voice-activity-detection/00_index.html" />
+    <link rel="next" title="Recipe template" href="04_recipe-template.html" />
     <link rel="prev" title="Resources on SaturnCloud" href="02_saturncloud-launch.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -169,6 +169,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      JupyterLab Interface
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_recipe-template.html">
+     Recipe template
     </a>
    </li>
   </ul>
@@ -365,6 +370,13 @@ title="Print to PDF"
     <a class="reference internal nav-link" href="#python-commands">
      Python commands
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#using-python-packages">
+       Using Python packages
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#shell-commands">
@@ -372,11 +384,6 @@ title="Print to PDF"
     </a>
    </li>
   </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#wrap-up">
-   Wrap up
-  </a>
  </li>
 </ul>
 
@@ -428,6 +435,13 @@ title="Print to PDF"
     <a class="reference internal nav-link" href="#python-commands">
      Python commands
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#using-python-packages">
+       Using Python packages
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#shell-commands">
@@ -435,11 +449,6 @@ title="Print to PDF"
     </a>
    </li>
   </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#wrap-up">
-   Wrap up
-  </a>
  </li>
 </ul>
 
@@ -495,6 +504,24 @@ title="Print to PDF"
 <figure class="align-default">
 <img alt="../../_images/saturncloud-jupyterlab-home-saturn-python3-hello.png" src="../../_images/saturncloud-jupyterlab-home-saturn-python3-hello.png" />
 </figure>
+<section id="using-python-packages">
+<h4>Using Python packages<a class="headerlink" href="#using-python-packages" title="Permalink to this headline">#</a></h4>
+<p>As mentioned at the start of this chapter, we’re going to be using specialised tools already developed by other people to offload the bulk of the data processing work.
+Most of these tools will come in the form of Python packages, which are bundles of code written by others that we can use.
+The SaturnCloud environments for each tutorial will have all the necessary packages pre-installed, so we’ll just have to learn to use them (we’ll cover package installation in later tutorials).</p>
+<p>In Python, we use the <code class="docutils literal notranslate"><span class="pre">import</span></code> statement to load the code associated with a given package into the current working environment.
+For a simple example, the <code class="docutils literal notranslate"><span class="pre">string</span></code> package provides a <code class="docutils literal notranslate"><span class="pre">capwords</span></code> function, which capitalizes each word in a sentence.
+So let’s go ahead and import the <code class="docutils literal notranslate"><span class="pre">string</span></code> package:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">string</span>
+</pre></div>
+</div>
+<p>With the <code class="docutils literal notranslate"><span class="pre">string</span></code> package imported, you can now make use of the <code class="docutils literal notranslate"><span class="pre">capwords</span></code> function:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">string</span><span class="o">.</span><span class="n">capwords</span><span class="p">(</span><span class="s2">&quot;hello this is a test&quot;</span><span class="p">)</span>
+
+<span class="c1"># &#39;Hello This Is A Test&#39;</span>
+</pre></div>
+</div>
+</section>
 </section>
 <section id="shell-commands">
 <h3>Shell commands<a class="headerlink" href="#shell-commands" title="Permalink to this headline">#</a></h3>
@@ -512,11 +539,11 @@ title="Print to PDF"
 </div>
 </li>
 </ul>
+<p>Now that you have some basic familiarity with the computation environment, let’s get familiar with the basic structure what the tutorials will look like.</p>
+<!-- ## Wrap up
+
+This concludes the JupyterLab basics tutorial! I'll grow the contents of this page as I uncover aspects of the JupyterLab interface that new users find confusing when going through the Parledoct material. -->
 </section>
-</section>
-<section id="wrap-up">
-<h2>Wrap up<a class="headerlink" href="#wrap-up" title="Permalink to this headline">#</a></h2>
-<p>This concludes the JupyterLab basics tutorial! I’ll grow the contents of this page as I uncover aspects of the JupyterLab interface that new users find confusing when going through the Parledoct material.</p>
 </section>
 </section>
 
@@ -554,10 +581,10 @@ title="Print to PDF"
             <p class="prev-next-title">Resources on SaturnCloud</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../03_voice-activity-detection/00_index.html" title="next page">
+    <a class='right-next' id="next-link" href="04_recipe-template.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Voice activity detection</p>
+        <p class="prev-next-title">Recipe template</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

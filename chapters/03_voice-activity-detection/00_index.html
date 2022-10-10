@@ -54,7 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Using default parameters" href="01_defaults.html" />
-    <link rel="prev" title="JupyterLab Interface" href="../02_environment/03_jupyterlab-intro.html" />
+    <link rel="prev" title="Recipe template" href="../02_environment/04_recipe-template.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -169,6 +169,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="../02_environment/03_jupyterlab-intro.html">
      JupyterLab Interface
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02_environment/04_recipe-template.html">
+     Recipe template
     </a>
    </li>
   </ul>
@@ -413,10 +418,6 @@ Start the resource and once it’s ready <a class="reference external" href="../
 <p>We’ll be using some real fieldwork data on Ihanzu (a Bantu language spoken in Tanzania) collected by <a class="reference external" href="https://www.andrewdtharvey.com/">Andrew Harvey</a>, publicly available with a <a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">CC-BY license</a> on the <a class="reference external" href="https://www.elararchive.org/index.php?name=SO_87014498-be98-4698-82fc-8fac58578d57">Endangered Languages Archive</a>. For this tutorial, we’ll be using versions of the recordings that I’ve modified (resampled, converted to mono, etc.) and uploaded to Zenodo.</p>
 <p>First let’s download the data from Zenodo into the <code class="docutils literal notranslate"><span class="pre">tmp</span></code> folder using <code class="docutils literal notranslate"><span class="pre">wget</span></code> <a class="reference external" href="../02_environment/03_jupyterlab-intro.html#shell-commands">Shell commands</a>.
 Copy and paste the commands below into the text input area and press <code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">Enter</span></code> to execute them.</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>To copy code, you can hover your mouse over the top right corner of a code block until the a <code class="docutils literal notranslate"><span class="pre">Copy</span></code> button appears and then click the button to copy the contents of a code block.</p>
-</div>
 <ul>
 <li><p><strong>Get</strong> data from the <strong>w</strong>eb url <code class="docutils literal notranslate"><span class="pre">http://zenodo.org/...</span></code> and write the data to the <strong>o</strong>utput file <code class="docutils literal notranslate"><span class="pre">tmp/data.zip</span></code> (specified <code class="docutils literal notranslate"><span class="pre">-O</span></code>):</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>!wget <span class="s1">&#39;https://zenodo.org/record/6519000/files/ihanzu-harvey-0596_20180518opq.zip?download=1&#39;</span> <span class="se">\</span>
@@ -430,6 +431,11 @@ Copy and paste the commands below into the text input area and press <code class
 </div>
 </li>
 </ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>To copy code, you can hover your mouse over the top right corner of a code block until the a <code class="docutils literal notranslate"><span class="pre">Copy</span></code> button appears and then click the button to copy the contents of a code block.</p>
+<p><img alt="copy-hover.png" src="../../_images/copy-hover.png" /></p>
+</div>
 <p>Now that you have the environment and data ready, let’s use <code class="docutils literal notranslate"><span class="pre">auditok</span></code> to perform voice activity detection!</p>
 </section>
 </section>
@@ -464,11 +470,11 @@ Copy and paste the commands below into the text input area and press <code class
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../02_environment/03_jupyterlab-intro.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../02_environment/04_recipe-template.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">JupyterLab Interface</p>
+            <p class="prev-next-title">Recipe template</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="01_defaults.html" title="next page">
